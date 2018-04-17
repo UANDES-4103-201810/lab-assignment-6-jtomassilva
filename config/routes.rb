@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
   get '/sign_in' => 'registrations#new', as: :registrations
   post '/sign_in' => 'registrations#create', as: :sign_in
-
+  #get '/sign_in' => 'users#new'
+  #post '/sign_in' => 'users#create'
 end

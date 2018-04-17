@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find(params[:id])
   end
 
   # GET /users/new
@@ -25,7 +26,15 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    #complete this method
+     @user = User.new(params[user_params])    # Not the final implementation!
+    if @user.save
+	log_in @user
+	redirect_to @user
+	
+      # Handle a successful save.
+    else
+      render 'new'
+    end
   end
 
   # PATCH/PUT /users/1
